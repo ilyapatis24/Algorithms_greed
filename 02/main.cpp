@@ -3,7 +3,7 @@ using namespace std;
 typedef unsigned long long ull;
 
 ull* fibonacce(const int size) {
-    ull* arrayFib = new ull[size];
+    ull* arrayFib = new ull[size + 1];
     arrayFib[0] = 0;
     arrayFib[1] = 1;
     
@@ -14,6 +14,9 @@ ull* fibonacce(const int size) {
     return arrayFib;
 }
 
+void clear_memory(ull* arr_ptr) {
+  delete[] arr_ptr;
+}
 
 int main(int argc, char** argv) {
     system("chcp 1251");
@@ -25,8 +28,7 @@ int main(int argc, char** argv) {
     for (int i = 0; i < size; ++i) {
         cout << arr_ptr[i] << " ";
     }
-    delete[] arr_ptr;
-    arr_ptr = nullptr;
+    clear_memory(arr_ptr);
     return 0;
 }
 
